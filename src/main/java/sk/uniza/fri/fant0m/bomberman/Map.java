@@ -72,6 +72,7 @@ public class Map {
         } catch (IOException ex) {
             Logger.getLogger(Map.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         in = new BufferedReader(new InputStreamReader(
             loader.getResourceAsStream("maps/" + level + ".txt"),
             StandardCharsets.UTF_8
