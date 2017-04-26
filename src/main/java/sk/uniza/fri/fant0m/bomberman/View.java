@@ -1,6 +1,8 @@
 package sk.uniza.fri.fant0m.bomberman;
 
 import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,10 +15,6 @@ import javax.swing.JPanel;
  * @author fant0m
  */
 public class View extends JFrame implements ActionListener {
-    /**
-     * Main application frame.
-     */
-    private JFrame frame;
     /**
      * Layout type.
      */
@@ -60,9 +58,12 @@ public class View extends JFrame implements ActionListener {
         multiplayer = new Game(this, Game.MULTIPLAYER);
         progress = new Progress(this);
         stats = new Stats(this);
-        frame = new JFrame("Bomberman v1.0");
 
-        this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        Dimension d = new Dimension(FRAME_WIDTH, FRAME_HEIGHT);
+        Container c = this.getContentPane();
+        c.setPreferredSize(d);
+        this.pack();
+
         this.setResizable(false);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,14 +88,6 @@ public class View extends JFrame implements ActionListener {
      */
     public static void main(final String[] args) {
         new View();
-    }
-
-    /**
-     * Frame getter.
-     * @return frame
-     */
-    public final JFrame getFrame() {
-        return frame;
     }
 
     /**
